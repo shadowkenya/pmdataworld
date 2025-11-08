@@ -3,47 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PM Data World</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Navbar Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+        section {
+            padding: 100px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="#home">
-    PM Data World
-    <span style="display: inline-flex; align-items: center; margin-left: 4px;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wifi" viewBox="0 0 16 16">
-            <path d="M8 13c.828 0 1.5-.672 1.5-1.5S8.828 10 8 10s-1.5.672-1.5 1.5S7.172 13 8 13zm0-1a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1z"/>
-            <path d="M2.878 6.515a.5.5 0 0 1 .686.19c.4.636.887 1.18 1.448 1.597a.5.5 0 0 1-.575.82 7.499 7.499 0 0 1-1.81-2.003.5.5 0 0 1 .19-.686zm10.244 0a.5.5 0 0 1 .19.686 7.498 7.498 0 0 1-1.81 2.003.5.5 0 1 1-.575-.82 5.998 5.998 0 0 0 1.448-1.597.5.5 0 0 1 .747-.272z"/>
-            <path d="M4.12 4.354a.5.5 0 0 1 .707.086A10.972 10.972 0 0 0 8 6.5a10.972 10.972 0 0 0 3.172-2.06.5.5 0 0 1 .707-.086.5.5 0 0 1 .086.707A11.973 11.973 0 0 1 8 7.5 11.973 11.973 0 0 1 4.034 5.06a.5.5 0 0 1 .086-.707z"/>
-        </svg>
-    </span>
-</a>
 
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#packages">Packages</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#poster">Admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#home">PM Data World</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#packages">Packages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#poster">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
+<!-- Sections -->
+<section id="packages" style="height:500px;">Packages Content</section>
+<section id="poster" style="height:500px;">Admin Content</section>
+<section id="services" style="height:500px;">Services Content</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Collapse navbar on link click (mobile only) -->
+<script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const navCollapse = document.getElementById('navbarNav');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 992) { // only collapse on mobile
+                const bsCollapse = bootstrap.Collapse.getInstance(navCollapse);
+                if(bsCollapse) bsCollapse.hide();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
     <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="container">
@@ -127,7 +150,7 @@
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 40px;
+      padding: 20px;
       margin-bottom: 20px;
       transition: transform 0.2s ease;
     }
