@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Data Solution</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                PM Data Solution
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#packages">Packages</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#poster">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-4 mb-4">
+                <i class="fas fa-signal"></i> PM Data Solution
+            </h1>
+            <p class="lead mb-4">PM SAFARICOM DEALS!</p>
+            <p class="mb-4">
+                <i class="fas fa-phone"></i> 24/7 Service | 
+                <i class="fas fa-shield-alt"></i> Secure Payments | 
+                <i class="fas fa-lightning-bolt"></i> Instant Delivery
+            </p>
+            <div class="mt-4">
+                <span class="bg-white/20 px-3 py-1 rounded-pill me-2">✓ Instant Activation</span>
+                <span class="bg-white/20 px-3 py-1 rounded-pill me-2">✓ No Okoa Needed</span>
+                <span class="bg-white/20 px-3 py-1 rounded-pill me-2">✓ Affordable Bingwa Prices</span>
+                <span class="bg-white/20 px-3 py-1 rounded-pill">✓ Friendly Support</span>
+            </div>
+            <a href="#packages" class="btn btn-light btn-lg mt-4">
+                <i class="fas fa-shopping-cart"></i> Shop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- How to Purchase Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title fade-in-up">How to Purchase</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4 fade-in-left">
+                    <div class="mb-3">
+                        <i class="fas fa-mobile-alt fa-3x" style="color: var(--safaricom-green);"></i>
+                    </div>
+                    <h4>1. Choose Package</h4>
+                    <p>Select your preferred data, SMS, or minutes package from our offers below</p>
+                </div>
+                <div class="col-md-4 text-center mb-4 fade-in-up">
+                    <div class="mb-3">
+                        <i class="fas fa-credit-card fa-3x" style="color: var(--safaricom-green);"></i>
+                    </div>
+                    <h4>2. Make Payment</h4>
+                    <p>Pay via PayHero link or directly to M-Pesa Till: <strong>4832924</strong></p>
+                </div>
+                <div class="col-md-4 text-center mb-4 fade-in-right">
+                    <div class="mb-3">
+                        <i class="fas fa-check-circle fa-3x" style="color: var(--safaricom-green);"></i>
+                    </div>
+                    <h4>3. Instant Delivery</h4>
+                    <p>Receive your data/SMS instantly. Minutes processed manually via WhatsApp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-5">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Our Packages</h2>
+            
+            <!-- Data Packages Section -->
+			 <div class="mb-5">
+                <h3 class="text-center mb-4" style="color: var(--safaricom-green); font-weight: bold;">📱 BEST BUNDLES OFFERS</h3>
+                <div class="row">
+            
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Internet Packages</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d5a64b.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    }
+    .package-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 40px;
+      margin-bottom: 20px;
+      transition: transform 0.2s ease;
+    }
+    .package-card:hover {
+      transform: translateY(-5px);
+    }
+    .best-deal {
+      border: 2px solid #007bff;
+    }
+    .package-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .package-price {
+      font-size: 1.4rem;
+      color: #007bff;
+      font-weight: bold;
+    }
+    .copy-btn {
+      background: none;
+      border: none;
+      color: #007bff;
+      font-size: 0.9rem;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+    .till-number {
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+    .spinner-border {
+      width: 1rem;
+      height: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container py-5">
+  <div class="row">
+    <!-- Package 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">1GB - 1 Hour</div>
+        <div class="package-price">Ksh 15</div>
+        <p class="mt-2">Perfect for quick browsing</p>
+        <button class="btn btn-primary buy-btn" data-price="15" data-name="1GB - 1 Hour">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">250MB - 24 Hours</div>
+        <div class="package-price">Ksh 18</div>
+        <p class="mt-2">Great for daily use</p>
+        <button class="btn btn-primary buy-btn" data-price="18" data-name="250MB - 24 Hours">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">1.25GB - Till Midnight</div>
+        <div class="package-price">Ksh 45</div>
+        <p class="mt-2">Perfect for evening sessions</p>
+        <button class="btn btn-primary buy-btn" data-price="45" data-name="1.25GB - Till Midnight">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<div class="container py-5">
+  <div class="row">
+  <!-- Package 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">1GB - 2 Hour</div>
+        <div class="package-price">Ksh 19</div>
+        <p class="mt-2">Perfect for quick browsing</p>
+        <button class="btn btn-primary buy-btn" data-price="19" data-name="1GB - 2 Hour">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">250MB - 24 Hours</div>
+        <div class="package-price">Ksh 15</div>
+        <p class="mt-2">Great for daily use</p>
+        <button class="btn btn-primary buy-btn" data-price="15" data-name="250MB - 24 Hours">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">3.25GB - Till Midnight</div>
+        <div class="package-price">Ksh 55</div>
+        <p class="mt-2">Perfect for evening sessions</p>
+        <button class="btn btn-primary buy-btn" data-price="55" data-name="3.25GB - Till Midnight">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="row">
+  <!-- Package 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">3GB - 1 Hour</div>
+        <div class="package-price">Ksh 25</div>
+        <p class="mt-2">Perfect for quick browsing</p>
+        <button class="btn btn-primary buy-btn" data-price="25" data-name="3GB - 1 Hour">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">500MB - 24 Hours</div>
+        <div class="package-price">Ksh 20</div>
+        <p class="mt-2">Great for daily use</p>
+        <button class="btn btn-primary buy-btn" data-price="20" data-name="500MB - 24 Hours">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">25GB - Till Midnight</div>
+        <div class="package-price">Ksh 99</div>
+        <p class="mt-2">Perfect for evening sessions</p>
+        <button class="btn btn-primary buy-btn" data-price="99" data-name="25GB - Till Midnight">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container py-5">
+  <div class="row">
+  <!-- Package 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">1.5GB - 1 Hour</div>
+        <div class="package-price">Ksh 30</div>
+        <p class="mt-2">Perfect for quick browsing</p>
+        <button class="btn btn-primary buy-btn" data-price="30" data-name="1.5GB - 1 Hour">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">2500MB - 24 Hours</div>
+        <div class="package-price">Ksh 20</div>
+        <p class="mt-2">Great for daily use</p>
+        <button class="btn btn-primary buy-btn" data-price="20" data-name="2500MB - 24 Hours">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">5.25GB - Till Midnight</div>
+        <div class="package-price">Ksh 50</div>
+        <p class="mt-2">Perfect for evening sessions</p>
+        <button class="btn btn-primary buy-btn" data-price="50" data-name="5.25GB - Till Midnight">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mb-5">
+                <h3 class="text-center mb-4" style="color: var(--safaricom-green); font-weight: bold;">📱 DISCOUNT OFFERS</h3>
+                <div class="row">
+<div class="container py-5">
+  <div class="row">
+  <!-- Package 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">2GB - 1 Hour</div>
+        <div class="package-price">Ksh 15</div>
+        <p class="mt-2">Perfect for quick browsing</p>
+        <button class="btn btn-primary buy-btn" data-price="15" data-name="1GB - 1 Hour">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">250MB - 24 Hours</div>
+        <div class="package-price">Ksh 10</div>
+        <p class="mt-2">Great for daily use</p>
+        <button class="btn btn-primary buy-btn" data-price="20" data-name="250MB - 10 Hours">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">1.25GB - Till Midnight</div>
+        <div class="package-price">Ksh 30</div>
+        <p class="mt-2">Perfect for evening sessions</p>
+        <button class="btn btn-primary buy-btn" data-price="30" data-name="1.25GB - Till Midnight">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="paymentModalLabel">Complete Your Purchase</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h6 id="modalPackageName" class="fw-bold"></h6>
+        <p id="modalPackagePrice" class="text-primary fw-bold"></p>
+        <div class="mb-3">
+          <input type="tel" id="phoneNumber" class="form-control" placeholder="Enter your phone number">
+        </div>
+        <button class="btn btn-success w-100" id="payNowBtn">
+          <span id="payNowText">Pay Now</span>
+          <div class="spinner-border spinner-border-sm d-none" id="paySpinner" role="status"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const buyButtons = document.querySelectorAll('.buy-btn');
+  const modal = new bootstrap.Modal(document.getElementById('paymentModal'));
+  const modalPackageName = document.getElementById('modalPackageName');
+  const modalPackagePrice = document.getElementById('modalPackagePrice');
+  const payNowBtn = document.getElementById('payNowBtn');
+  const paySpinner = document.getElementById('paySpinner');
+  const payNowText = document.getElementById('payNowText');
+
+  let selectedPackageName = '';
+  let selectedPackagePrice = '';
+
+  // Show modal with package info
+  buyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = `<div class="spinner-border text-light spinner-border-sm"></div> Loading...`;
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+        selectedPackageName = btn.getAttribute('data-name');
+        selectedPackagePrice = btn.getAttribute('data-price');
+        modalPackageName.textContent = selectedPackageName;
+        modalPackagePrice.textContent = `Price: Ksh ${selectedPackagePrice}`;
+        modal.show();
+      }, 1000);
+    });
+  });
+
+  // Generate unique short reference like PM23
+  function generateReference() {
+    const num = Math.floor(10 + Math.random() * 90); // two random digits
+    return `PM${num}`;
+  }
+
+  // Handle payment redirect
+  payNowBtn.addEventListener('click', () => {
+    const phoneNumber = document.getElementById('phoneNumber').value.trim();
+    if (phoneNumber === "") {
+      alert("Please enter your phone number");
+      return;
+    }
+
+    payNowText.classList.add('d-none');
+    paySpinner.classList.remove('d-none');
+    payNowBtn.disabled = true;
+
+    setTimeout(() => {
+      const ref = generateReference();
+      const amount = selectedPackagePrice;
+      const pkg = selectedPackageName;
+      const date = new Date().toLocaleString();
+
+      const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
+        `amount=${encodeURIComponent(amount)}` +
+        `&channel_id=4064` +
+        `&reference=${encodeURIComponent(ref + " - " + pkg)}` +
+        `&name=Customer` +
+        `&phone=${encodeURIComponent(phoneNumber)}` +
+        `&county=N/A` +
+        `&delivery=${encodeURIComponent(date)}`;
+
+      payNowText.classList.remove('d-none');
+      paySpinner.classList.add('d-none');
+      payNowBtn.disabled = false;
+      modal.hide();
+
+      window.open(payheroURL, '_blank'); // open PayHero in new tab
+      window.location.href = "index.html"; // redirect to home
+    }, 1000);
+  });
+
+  // Copy till number
+  function copyTillNumber() {
+    const tillNumber = "4832924";
+    navigator.clipboard.writeText(tillNumber);
+    alert("Till number copied: " + tillNumber);
+  }
+</script>
+</body>
+</html>
+          
+
+            <!-- Minutes Packages Section -->
+            <div class="mb-5">
+                <h3 class="text-center mb-4" style="color: var(--safaricom-red); font-weight: bold;">☎️ MINUTES PACKAGES</h3>
+                <div class="alert alert-warning text-center" role="alert">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Manual Processing:</strong> Click below to order via WhatsApp +254758361830 for instant assistance.
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="package-card minutes-card">
+                            <div class="package-title">45 Minutes - 3 Hours</div>
+                            <div class="package-price">Ksh 21</div>
+                            <p class="mt-2 text-muted"><del>Original: Ksh 20</del></p>
+                            <button class="btn btn-primary minutes-btn" onclick="buyMinutes('45 Minutes - 3 Hours', 21)">
+                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                            </button>
+                            <div class="till-number">
+                                <strong>Manual Processing Required</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="package-card minutes-card">
+                            <div class="package-title">250 Minutes - 7 Days</div>
+                            <div class="package-price">Ksh 80</div>
+                            <p class="mt-2 text-muted"><del>Original: Ksh 90</del></p>
+                            <button class="btn btn-primary minutes-btn" onclick="buyMinutes('250 Minutes - 7 Days', 80)">
+                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                            </button>
+                            <div class="till-number">
+                                <strong>Manual Processing Required</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Notice -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-info text-center" role="alert">
+                        <h5><i class="fas fa-info-circle"></i> Important Notice</h5>
+                        <p class="mb-0"><strong>OFFER VALID ONCE PER NUMBER PER DAY</strong></p>
+                        <p class="mb-0">In case of delay: Call/WhatsApp <strong>0758361830</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Poster Section -->
+    <section id="poster" class="poster-section">
+        <div class="container">
+            <h2 class="section-title scale-in">Website Admin</h2>
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <div class="text-center fade-in-up">
+                        <img src="images/pc.png" 
+                             alt="Kings Data Solution - Safaricom Packages" class="poster-image img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Other Services</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4 fade-in-left">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Graphics Design</h3>
+                        <p>Professional logo design, branding, posters, business cards, and all your graphic design needs.</p>
+                       <a href="https://wa.me/254758361830?text=Hi%20PM%20Smart%20World,%20need%20data%20package" 
+   class="btn btn-primary" target="_blank">
+    <i class="fab fa-whatsapp"></i> Hire via WhatsApp
+</a>
+
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 fade-in-right">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+			  <h3>Frontend Web Development</h3>
+                        <p>Professional website development using HTML, CSS, JavaScript, React, and other frontend technologies to create responsive and interactive websites.</p>
+                        <a href="https://wa.me/254758361830?text=Hi%20PM%20Smart%20World,%20need%20data%20package" 
+   class="btn btn-primary" target="_blank">
+    <i class="fab fa-whatsapp"></i> Hire via WhatsApp
+</a>
+
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 fade-in-right">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+  			<h3>Backend Web Development</h3>
+                        <p>Professional backend development using PHP, Node.js, Python, databases, and APIs to build robust and secure server-side applications.</p>
+                       <a href="https://wa.me/254758361830?text=Hi%20PM%20Smart%20World,%20need%20data%20package" 
+   class="btn btn-primary" target="_blank">
+    <i class="fab fa-whatsapp"></i> Hire via WhatsApp
+</a>
+
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 fade-in-right">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+  			<h3>Mobile Apps Development</h3>
+                        <p>Professional mobile app development for Android and iOS using Flutter, React Native, and native technologies to create interactive and high-performance apps.</p>
+                        <a href="https://wa.me/254758361830?text=Hi%20PM%20Smart%20World,%20need%20data%20package" 
+   class="btn btn-primary" target="_blank">
+    <i class="fab fa-whatsapp"></i> Hire via WhatsApp
+</a>
+
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 fade-in-right">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+ 			 <h3>Computer Packages</h3>
+                        <p>Comprehensive computer packages including MS Office, Photoshop, CorelDRAW, Excel, PowerPoint, and other essential software for personal and business use.</p>
+                        <a href="https://wa.me/254758361830?text=Hi%20PM%20Smart%20World,%20need%20data%20package" 
+   class="btn btn-primary" target="_blank">
+    <i class="fab fa-whatsapp"></i> Hire via WhatsApp
+</a>
+
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4 fade-in-right">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Full Stack System Developer</h3>
+                        <p>Custom websites, e-commerce solutions, web applications, and digital solutions for your business.</p>
+                        <a href="https://wa.me/254758361830?text=Hi%20PM%20Smart%20World,%20need%20data%20package" 
+   class="btn btn-primary" target="_blank">
+    <i class="fab fa-whatsapp"></i> Hire via WhatsApp
+</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in-up">
+                        <span class="stat-number" data-count="5000">0</span>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in-up">
+                        <span class="stat-number" data-count="24">0</span>
+                        <div class="stat-label">Hours Service</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in-up">
+                        <span class="stat-number" data-count="99">0</span>
+                        <div class="stat-label">% Reliability</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item fade-in-up">
+                        <span class="stat-number" data-count="9000">0</span>
+                        <div class="stat-label">Data Bundles Sold</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title fade-in-up">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card fade-in-left">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"Best data deals in Kenya! Always get my bundles instantly. PM Data Solution never disappoints!"</p>
+                        <strong>- Peter Mayende</strong>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card fade-in-up">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"Reliable service and great prices. I've been buying from them for months. Highly recommended!"</p>
+                        <strong>- Kevin Birongo</strong>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card fade-in-right">
+                        <div class="mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"24/7 support and instant delivery. Perfect for emergency data needs. Thank you PM!"</p>
+                        <strong>- Fred Juma</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="faq-item fade-in-up">
+                        <h5 class="faq-question" onclick="toggleFAQ(this)">
+                            <i class="fas fa-plus"></i> How fast will I receive my data bundle?
+                        </h5>
+                        <div class="faq-answer">
+                            Data bundles are delivered instantly after payment confirmation. Usually within 1-2 minutes.
+                        </div>
+                    </div>
+                    <div class="faq-item fade-in-up">
+                        <h5 class="faq-question" onclick="toggleFAQ(this)">
+                            <i class="fas fa-plus"></i> What payment methods do you accept?
+                        </h5>
+                        <div class="faq-answer">
+                            We accept M-Pesa payments via our Till Number 4832924 or through our PayHero payment link.
+                        </div>
+                    </div>
+                    <div class="faq-item fade-in-up">
+                        <h5 class="faq-question" onclick="toggleFAQ(this)">
+                            <i class="fas fa-plus"></i> How do minutes packages work?
+                        </h5>
+                        <div class="faq-answer">
+                            Minutes packages require manual processing. Click the WhatsApp button to order and we'll guide you through the process.
+                        </div>
+                    </div>
+                    <div class="faq-item fade-in-up">
+                        <h5 class="faq-question" onclick="toggleFAQ(this)">
+                            <i class="fas fa-plus"></i> What if I don't receive my bundle?
+                        </h5>
+                        <div class="faq-answer">
+                            Contact us immediately via WhatsApp +254 7583361830. We provide 24/7 support and will resolve any issues quickly.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/254758361830?text=Hi%20Kings%20Data%20Solution,%20I%20need%20help%20with%20packages" 
+       class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 PM Data Solution</p>
+            <p>PM Your trusted partner for affordable packages in Kenya.Developed by Peter Mayende</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
