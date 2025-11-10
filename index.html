@@ -204,7 +204,7 @@
     </div>
   </div>
 </div>
-<div class="container py-5 text-center">
+
   <div class="row justify-content-center">
     <!-- Package 1 -->
     <div class="col-md-6 col-lg-4 d-flex justify-content-center">
@@ -255,7 +255,7 @@
     </div>
   </div>
 </div>
-	<div class="container py-5 text-center">
+
   <div class="row justify-content-center">
     <!-- Package 1 -->
     <div class="col-md-6 col-lg-4 d-flex justify-content-center">
@@ -306,7 +306,7 @@
     </div>
   </div>
 </div>
-	<div class="container py-5 text-center">
+
   <div class="row justify-content-center">
     <!-- Package 1 -->
     <div class="col-md-6 col-lg-4 d-flex justify-content-center">
@@ -605,41 +605,143 @@
 </html>
 
           
- <!-- Minutes Packages Section -->
-            <div class="mb-5">
-                <h3 class="text-center mb-4" style="color: var(--safaricom-red); font-weight: bold;">☎️ MINUTES PACKAGES</h3>
-                <div class="alert alert-warning text-center" role="alert">
-                    <i class="fas fa-exclamation-triangle"></i> <strong>Manual Processing:</strong> Click below to order via WhatsApp +254758361830 for instant assistance.
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="package-card minutes-card">
-                            <div class="package-title">45 Minutes - 3 Hours</div>
-                            <div class="package-price">Ksh 21</div>
-                            <p class="mt-2 text-muted"><del>Original: Ksh 20</del></p>
-                            <button class="btn btn-primary minutes-btn" onclick="buyMinutes('45 Minutes - 3 Hours', 21)">
-                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-                            </button>
-                            <div class="till-number">
-                                <strong>Manual Processing Required</strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="package-card minutes-card">
-                            <div class="package-title">250 Minutes - 7 Days</div>
-                            <div class="package-price">Ksh 80</div>
-                            <p class="mt-2 text-muted"><del>Original: Ksh 90</del></p>
-                            <button class="btn btn-primary minutes-btn" onclick="buyMinutes('250 Minutes - 7 Days', 80)">
-                                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-                            </button>
-                            <div class="till-number">
-                                <strong>Manual Processing Required</strong>
-                            </div>
-                        </div>
-                    </div>
+<!-- Minutes Packages Section -->
+<div class="mb-5">
+    <h3 class="text-center mb-4" style="color: var(--safaricom-red); font-weight: bold;">☎️ MINUTES PACKAGES</h3>
+    <div class="alert alert-warning text-center" role="alert">
+        <i class="fas fa-exclamation-triangle"></i> <strong>Manual Processing:</strong> Click below to order 
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="package-card minutes-card">
+                <div class="package-title">45 Minutes - 3 Hours</div>
+                <div class="package-price">Ksh 19</div>
+                <button class="btn btn-primary order-minutes-btn" data-package="45 Minutes - 3 Hours" data-price="19">
+                    <i class="fas fa-shopping-cart"></i> Order Now
+                </button>
+                <div class="till-number">
+                    <strong>Manual Processing Required</strong>
                 </div>
             </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="package-card minutes-card">
+                <div class="package-title">250 Minutes - 7 Days</div>
+                <div class="package-price">Ksh 80</div>
+                <p class="mt-2 text-muted"><del>Original: Ksh 90</del></p>
+                <button class="btn btn-primary order-minutes-btn" data-package="250 Minutes - 7 Days" data-price="80">
+                    <i class="fas fa-shopping-cart"></i> Order Now
+                </button>
+                <div class="till-number">
+                    <strong>Manual Processing Required</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Loader -->
+<div id="loader" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#00000070; z-index:2000; align-items:center; justify-content:center;">
+  <div class="spinner-border text-light" style="width:3rem; height:3rem;" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Complete Your Order</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="paymentForm">
+          <div class="mb-3">
+            <label class="form-label">Package</label>
+            <input type="text" class="form-control" id="serviceName" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="text" class="form-control" id="serviceFee" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number" required>
+          </div>
+          <button type="submit" class="btn btn-success w-100" id="payBtn">
+            <i class="fas fa-credit-card"></i> Pay Now
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a2d9d5a64b.js" crossorigin="anonymous"></script>
+
+<script>
+const loader = document.getElementById("loader");
+const orderModal = new bootstrap.Modal(document.getElementById("orderModal"));
+const serviceNameInput = document.getElementById("serviceName");
+const serviceFeeInput = document.getElementById("serviceFee");
+const paymentForm = document.getElementById("paymentForm");
+const orderMinutesBtns = document.querySelectorAll(".order-minutes-btn");
+
+// Loader helper
+function showLoader(callback, duration = 2000) {
+    loader.style.display = "flex";
+    setTimeout(() => {
+        loader.style.display = "none";
+        if(callback) callback();
+    }, duration);
+}
+
+// Generate unique reference
+function generateReference() {
+    const randomNum = Math.floor(10 + Math.random() * 90);
+    return "pm" + randomNum;
+}
+
+// Open modal when package order clicked
+orderMinutesBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const packageName = btn.dataset.package;
+        const packagePrice = btn.dataset.price;
+        showLoader(() => {
+            serviceNameInput.value = packageName;
+            serviceFeeInput.value = "KSh " + packagePrice;
+            orderModal.show();
+        }, 2000);
+    });
+});
+
+// Handle payment
+paymentForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const phoneNumber = document.getElementById("phoneNumber").value.trim(); // as typed
+    const service = serviceNameInput.value;
+    const amount = serviceFeeInput.value.replace(/\D/g,''); // extract numeric value
+    const ref = generateReference();
+
+    orderModal.hide();
+
+    showLoader(() => {
+        const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
+            `amount=${encodeURIComponent(amount)}` +
+            `&channel_id=3990` +
+            `&reference=${encodeURIComponent(ref + " - " + service)}` +
+            `&name=Customer` +
+            `&phone=${encodeURIComponent(phoneNumber)}` +
+            `&county=N/A`;
+
+        window.open(payheroURL, '_blank');
+        window.location.href = "index.html";
+    }, 3000);
+});
+</script>
 
             <!-- Important Notice -->
             <div class="row">
