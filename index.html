@@ -429,7 +429,7 @@
     <h2 class="section-title fade-in-up">Other Services</h2>
     <div class="row">
 
-      <!-- Example Service Card -->
+      <!-- Service Card Example -->
       <div class="col-md-6 mb-4 fade-in-left">
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-palette"></i></div>
@@ -445,7 +445,7 @@
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-code"></i></div>
           <h3>Frontend Web Development</h3>
-          <p>Responsive and interactive websites using HTML, CSS, JavaScript, and React.</p>
+          <p>Responsive and interactive website development using HTML, CSS, JavaScript, and React.</p>
           <button class="btn btn-primary order-btn" data-service="Frontend Web Development">
             <i class="fas fa-shopping-cart"></i> Order Now
           </button>
@@ -456,7 +456,7 @@
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-server"></i></div>
           <h3>Backend Web Development</h3>
-          <p>Secure backend development using PHP, Node.js, Python, and modern databases.</p>
+          <p>Secure server-side development using PHP, Node.js, Python, and databases.</p>
           <button class="btn btn-primary order-btn" data-service="Backend Web Development">
             <i class="fas fa-shopping-cart"></i> Order Now
           </button>
@@ -467,7 +467,7 @@
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
           <h3>Mobile Apps Development</h3>
-          <p>Cross-platform apps built with Flutter, React Native, and native technologies.</p>
+          <p>Professional mobile app development using Flutter, React Native, and native technologies.</p>
           <button class="btn btn-primary order-btn" data-service="Mobile Apps Development">
             <i class="fas fa-shopping-cart"></i> Order Now
           </button>
@@ -478,7 +478,7 @@
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-laptop"></i></div>
           <h3>Computer Packages</h3>
-          <p>Comprehensive computer training including MS Office, Photoshop, CorelDRAW, and Excel.</p>
+          <p>Training in MS Office, Photoshop, CorelDRAW, Excel, PowerPoint, and more.</p>
           <button class="btn btn-primary order-btn" data-service="Computer Packages">
             <i class="fas fa-shopping-cart"></i> Order Now
           </button>
@@ -489,7 +489,7 @@
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-layer-group"></i></div>
           <h3>Full Stack System Developer</h3>
-          <p>Custom web systems, e-commerce solutions, and scalable digital platforms.</p>
+          <p>Custom e-commerce, management systems, and digital business solutions.</p>
           <button class="btn btn-primary order-btn" data-service="Full Stack System Developer">
             <i class="fas fa-shopping-cart"></i> Order Now
           </button>
@@ -523,15 +523,14 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Fee</label>
-            <input type="text" class="form-control" id="serviceFee" value="200" readonly>
+            <input type="text" class="form-control" id="serviceFee" value="KSh 200" readonly>
           </div>
           <div class="mb-3">
             <label class="form-label">Phone Number</label>
             <input type="text" class="form-control" id="phoneNumber" placeholder="07XXXXXXXX" required>
           </div>
           <button type="submit" class="btn btn-success w-100" id="payBtn">
-            <span id="payNowText"><i class="fas fa-credit-card"></i> Pay Now</span>
-            <span id="paySpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+            <i class="fas fa-credit-card"></i> Pay Now
           </button>
         </form>
       </div>
@@ -539,7 +538,7 @@
   </div>
 </div>
 
-<!-- Bootstrap & FontAwesome -->
+<!-- Bootstrap & Icons -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/a2d9d5a64b.js" crossorigin="anonymous"></script>
 
@@ -548,11 +547,8 @@
   const orderModal = new bootstrap.Modal(document.getElementById("orderModal"));
   const serviceNameInput = document.getElementById("serviceName");
   const orderBtns = document.querySelectorAll(".order-btn");
-  const payNowText = document.getElementById("payNowText");
-  const paySpinner = document.getElementById("paySpinner");
-  const payNowBtn = document.getElementById("payBtn");
 
-  // Fast loader animation
+  // Fast smooth loader
   function showLoader(callback) {
     loader.style.display = "flex";
     setTimeout(() => {
@@ -561,7 +557,7 @@
     }, 800);
   }
 
-  // Handle "Order Now"
+  // "Order Now" click
   orderBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const service = btn.dataset.service;
@@ -572,42 +568,19 @@
     });
   });
 
-  // Handle PayHero payment
+  // Payment submit
   document.getElementById("paymentForm").addEventListener("submit", e => {
     e.preventDefault();
-    payNowText.classList.add("d-none");
-    paySpinner.classList.remove("d-none");
-    payNowBtn.disabled = true;
-
-    const phoneNumber = document.getElementById("phoneNumber").value.trim();
-    const serviceName = document.getElementById("serviceName").value;
-    const amount = document.getElementById("serviceFee").value;
-    const ref = "PM Smart World";
-    const pkg = serviceName;
-    const date = new Date().toLocaleDateString();
-
-    setTimeout(() => {
-      const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
-        `amount=${encodeURIComponent(amount)}` +
-        `&channel_id=3990` +
-        `&reference=${encodeURIComponent(ref + " - " + pkg)}` +
-        `&name=Customer` +
-        `&phone=${encodeURIComponent(phoneNumber)}` +
-        `&county=N/A` +
-        `&delivery=${encodeURIComponent(date)}`;
-
-      // Reset button state
-      payNowText.classList.remove('d-none');
-      paySpinner.classList.add('d-none');
-      payNowBtn.disabled = false;
-      orderModal.hide();
-
-      // Open PayHero in new tab, then redirect to home
-      window.open(payheroURL, '_blank');
-      window.location.href = "index.html";
-    }, 1000);
+    showLoader(() => {
+      const phone = document.getElementById("phoneNumber").value.trim();
+      const service = document.getElementById("serviceName").value;
+      const payUrl = `https://payment.heropay.co.ke/?channel=3990&account=${encodeURIComponent(phone)}&service=${encodeURIComponent(service)}`;
+      // Open payment page in a new tab
+      window.open(payUrl, "_blank");
+    });
   });
 </script>
+
 
 
     <!-- Stats Section -->
