@@ -99,6 +99,7 @@
                 <h3 class="text-center mb-4" style="color: var(--safaricom-green); font-weight: bold;">📱 BEST BUNDLES OFFERS</h3>
                 <div class="row">
             
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -121,6 +122,7 @@
       padding: 40px;
       margin-bottom: 20px;
       transition: transform 0.2s ease;
+      text-align: center;
     }
     .package-card:hover {
       transform: translateY(-5px);
@@ -153,14 +155,23 @@
       width: 1rem;
       height: 1rem;
     }
+    @media (max-width: 768px) {
+      .row {
+        justify-content: center !important;
+      }
+      .package-card {
+        max-width: 90%;
+        margin: 10px auto;
+      }
+    }
   </style>
 </head>
 <body>
 
-<div class="container py-5">
-  <div class="row">
+<div class="container py-5 text-center">
+  <div class="row justify-content-center">
     <!-- Package 1 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center">
       <div class="package-card best-deal">
         <div class="package-title">1GB - 1 Hour</div>
         <div class="package-price">Ksh 15</div>
@@ -176,7 +187,7 @@
     </div>
 
     <!-- Package 2 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center">
       <div class="package-card best-deal">
         <div class="package-title">250MB - 24 Hours</div>
         <div class="package-price">Ksh 18</div>
@@ -192,7 +203,7 @@
     </div>
 
     <!-- Package 3 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center">
       <div class="package-card best-deal">
         <div class="package-title">1.25GB - Till Midnight</div>
         <div class="package-price">Ksh 45</div>
@@ -208,173 +219,18 @@
     </div>
   </div>
 </div>
- 
+
+<!-- Repeat the above pattern for other packages -->
+<!-- Example Discount Section -->
 <div class="container py-5">
-  <div class="row">
-  <!-- Package 1 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">1GB - 2 Hour</div>
-        <div class="package-price">Ksh 19</div>
-        <p class="mt-2">Perfect for quick browsing</p>
-        <button class="btn btn-primary buy-btn" data-price="19" data-name="1GB - 2 Hour">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Package 2 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">250MB - 24 Hours</div>
-        <div class="package-price">Ksh 15</div>
-        <p class="mt-2">Great for daily use</p>
-        <button class="btn btn-primary buy-btn" data-price="15" data-name="250MB - 24 Hours">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Package 3 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">3.25GB - Till Midnight</div>
-        <div class="package-price">Ksh 55</div>
-        <p class="mt-2">Perfect for evening sessions</p>
-        <button class="btn btn-primary buy-btn" data-price="55" data-name="3.25GB - Till Midnight">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container py-5">
-  <div class="row">
-  <!-- Package 1 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">3GB - 1 Hour</div>
-        <div class="package-price">Ksh 25</div>
-        <p class="mt-2">Perfect for quick browsing</p>
-        <button class="btn btn-primary buy-btn" data-price="25" data-name="3GB - 1 Hour">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Package 2 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">500MB - 24 Hours</div>
-        <div class="package-price">Ksh 20</div>
-        <p class="mt-2">Great for daily use</p>
-        <button class="btn btn-primary buy-btn" data-price="20" data-name="500MB - 24 Hours">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Package 3 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">25GB - Till Midnight</div>
-        <div class="package-price">Ksh 99</div>
-        <p class="mt-2">Perfect for evening sessions</p>
-        <button class="btn btn-primary buy-btn" data-price="99" data-name="25GB - Till Midnight">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container py-5">
-  <div class="row">
-  <!-- Package 1 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">1.5GB - 1 Hour</div>
-        <div class="package-price">Ksh 30</div>
-        <p class="mt-2">Perfect for quick browsing</p>
-        <button class="btn btn-primary buy-btn" data-price="30" data-name="1.5GB - 1 Hour">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Package 2 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">2500MB - 24 Hours</div>
-        <div class="package-price">Ksh 20</div>
-        <p class="mt-2">Great for daily use</p>
-        <button class="btn btn-primary buy-btn" data-price="20" data-name="2500MB - 24 Hours">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Package 3 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">5.25GB - Till Midnight</div>
-        <div class="package-price">Ksh 50</div>
-        <p class="mt-2">Perfect for evening sessions</p>
-        <button class="btn btn-primary buy-btn" data-price="50" data-name="5.25GB - Till Midnight">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="mb-5">
-                <h3 class="text-center mb-4" style="color: var(--safaricom-green); font-weight: bold;">📱 DISCOUNT OFFERS</h3>
-                <div class="row">
-<div class="container py-5">
-  <div class="row">
-  <!-- Package 1 -->
-    <div class="col-md-6 col-lg-4">
+  <h3 class="text-center mb-4 fw-bold text-success">📱 DISCOUNT OFFERS</h3>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center">
       <div class="package-card best-deal">
         <div class="package-title">2GB - 1 Hour</div>
         <div class="package-price">Ksh 15</div>
         <p class="mt-2">Perfect for quick browsing</p>
-        <button class="btn btn-primary buy-btn" data-price="15" data-name="1GB - 1 Hour">
+        <button class="btn btn-primary buy-btn" data-price="15" data-name="2GB - 1 Hour">
           <i class="fas fa-shopping-cart"></i> Buy Now
         </button>
         <div class="till-number">
@@ -384,13 +240,12 @@
       </div>
     </div>
 
-    <!-- Package 2 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center">
       <div class="package-card best-deal">
         <div class="package-title">250MB - 24 Hours</div>
         <div class="package-price">Ksh 10</div>
         <p class="mt-2">Great for daily use</p>
-        <button class="btn btn-primary buy-btn" data-price="20" data-name="250MB - 10 Hours">
+        <button class="btn btn-primary buy-btn" data-price="10" data-name="250MB - 24 Hours">
           <i class="fas fa-shopping-cart"></i> Buy Now
         </button>
         <div class="till-number">
@@ -400,8 +255,7 @@
       </div>
     </div>
 
-    <!-- Package 3 -->
-    <div class="col-md-6 col-lg-4">
+    <div class="col-md-6 col-lg-4 d-flex justify-content-center">
       <div class="package-card best-deal">
         <div class="package-title">1.25GB - Till Midnight</div>
         <div class="package-price">Ksh 30</div>
@@ -417,6 +271,7 @@
     </div>
   </div>
 </div>
+
 <!-- Payment Modal -->
 <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -439,79 +294,6 @@
     </div>
   </div>
 </div>
-					<div class="row">
-  <!-- Package 1 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">2GB - 1 Hour</div>
-        <div class="package-price">Ksh 15</div>
-        <p class="mt-2">Perfect for quick browsing</p>
-        <button class="btn btn-primary buy-btn" data-price="15" data-name="1GB - 1 Hour">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Package 2 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">250MB - 24 Hours</div>
-        <div class="package-price">Ksh 10</div>
-        <p class="mt-2">Great for daily use</p>
-        <button class="btn btn-primary buy-btn" data-price="20" data-name="250MB - 10 Hours">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Package 3 -->
-    <div class="col-md-6 col-lg-4">
-      <div class="package-card best-deal">
-        <div class="package-title">1.25GB - Till Midnight</div>
-        <div class="package-price">Ksh 30</div>
-        <p class="mt-2">Perfect for evening sessions</p>
-        <button class="btn btn-primary buy-btn" data-price="30" data-name="1.25GB - Till Midnight">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <div class="till-number">
-          <strong>M-Pesa Till: 4832924</strong>
-          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Payment Modal -->
-<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-primary text-white">
-        <h5 class="modal-title" id="paymentModalLabel">Complete Your Purchase</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <h6 id="modalPackageName" class="fw-bold"></h6>
-        <p id="modalPackagePrice" class="text-primary fw-bold"></p>
-        <div class="mb-3">
-          <input type="tel" id="phoneNumber" class="form-control" placeholder="Enter your phone number">
-        </div>
-        <button class="btn btn-success w-100" id="payNowBtn">
-          <span id="payNowText">Pay Now</span>
-          <div class="spinner-border spinner-border-sm d-none" id="paySpinner" role="status"></div>
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
@@ -531,7 +313,7 @@
     btn.addEventListener('click', () => {
       const originalText = btn.innerHTML;
       btn.disabled = true;
-      btn.innerHTML = `<div class="spinner-border text-light spinner-border-sm"></div> Loading...`;
+      btn.innerHTML = '<div class="spinner-border text-light spinner-border-sm"></div> Loading...';
 
       setTimeout(() => {
         btn.disabled = false;
@@ -545,9 +327,9 @@
     });
   });
 
-  // Generate unique short reference like PM23
+  // Generate unique short reference
   function generateReference() {
-    const num = Math.floor(10 + Math.random() * 90); // two random digits
+    const num = Math.floor(10 + Math.random() * 90);
     return `PM${num}`;
   }
 
@@ -569,22 +351,15 @@
       const pkg = selectedPackageName;
       const date = new Date().toLocaleString();
 
-      const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
-        `amount=${encodeURIComponent(amount)}` +
-        `&channel_id=4064` +
-        `&reference=${encodeURIComponent(ref + " - " + pkg)}` +
-        `&name=Customer` +
-        `&phone=${encodeURIComponent(phoneNumber)}` +
-        `&county=N/A` +
-        `&delivery=${encodeURIComponent(date)}`;
+      const payheroURL = `https://app.payhero.co.ke/lipwa/3513?amount=${encodeURIComponent(amount)}&channel_id=4064&reference=${encodeURIComponent(ref + " - " + pkg)}&name=Customer&phone=${encodeURIComponent(phoneNumber)}&county=N/A&delivery=${encodeURIComponent(date)}`;
 
       payNowText.classList.remove('d-none');
       paySpinner.classList.add('d-none');
       payNowBtn.disabled = false;
       modal.hide();
 
-      window.open(payheroURL, '_blank'); // open PayHero in new tab
-      window.location.href = "index.html"; // redirect to home
+      window.open(payheroURL, '_blank');
+      window.location.href = "index.html";
     }, 1000);
   });
 
@@ -597,6 +372,7 @@
 </script>
 </body>
 </html>
+
           
  <!-- Minutes Packages Section -->
             <div class="mb-5">
