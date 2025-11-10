@@ -547,20 +547,31 @@
     background-color: #f7f8fa;
     display: flex;
     flex-direction: column;
+    font-family: Arial, sans-serif;
   }
   main {
     flex: 1 0 auto;
   }
+
+  /* Service Cards */
   .service-card {
     background: #fff;
     border-radius: 15px;
     padding: 25px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  .service-card.show {
+    opacity: 1;
+    transform: translateY(0);
   }
   .service-card:hover { transform: translateY(-5px); }
   .service-icon i { font-size: 42px; color: #007bff; margin-bottom: 15px; }
+
+  /* Book Button */
   .btn-book {
     background-color: #28a745;
     border: none;
@@ -568,15 +579,17 @@
     padding: 10px 25px;
     border-radius: 8px;
     font-weight: 600;
+    transition: background 0.3s;
   }
   .btn-book:hover { background-color: #218838; }
-  .modal-header {
-    background-color: #007bff;
-    color: #fff;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  .modal-content { border-radius: 12px; }
+
+  /* Modal */
+  .modal-header { background-color: #007bff; color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; }
+  .modal-content { border-radius: 12px; transition: transform 0.4s ease, opacity 0.4s ease; }
+  .fade-scale { opacity: 0; transform: scale(0.95); transition: transform 0.4s ease, opacity 0.4s ease; }
+  .fade-scale.show { opacity: 1; transform: scale(1); }
+
+  /* Section Titles */
   .brand-header { font-weight: 700; color: #007bff; }
 
   /* Stats Section */
@@ -592,6 +605,13 @@
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+  .testimonial-card.show {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   /* FAQ */
@@ -673,7 +693,7 @@
 <!-- Booking Modal -->
 <div class="modal fade" id="bookingModal" tabindex="-1">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content fade-scale">
       <div class="modal-header">
         <h5 class="modal-title">Service Booking</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -708,22 +728,46 @@
 </footer>
 
 <script>
-  // Booking Modal Service Name
+  // Animate Service Cards on Scroll
+  const serviceCards = document.querySelectorAll('.service-card');
+  const testimonialCards = document.querySelectorAll('.testimonial-card');
+
+  const showOnScroll = (elements) => {
+    const triggerBottom = window.innerHeight * 0.85;
+    elements.forEach(el => {
+      const boxTop = el.getBoundingClientRect().top;
+      if(boxTop < triggerBottom) el.classList.add('show');
+    });
+  }
+  window.addEventListener('scroll', () => {
+    showOnScroll(serviceCards);
+    showOnScroll(testimonialCards);
+  });
+  window.addEventListener('load', () => {
+    showOnScroll(serviceCards);
+    showOnScroll(testimonialCards);
+  });
+
+  // Modal Service Name
   const bookingModal = document.getElementById('bookingModal');
   const serviceNameDisplay = document.getElementById('serviceName');
   let selectedService = '';
-
   bookingModal.addEventListener('show.bs.modal', event => {
     const button = event.relatedTarget;
     selectedService = button.getAttribute('data-service');
     serviceNameDisplay.textContent = selectedService;
     document.getElementById('phoneNumber').value = '';
+    document.querySelector('.fade-scale').classList.add('show');
   });
 
-  // PayHero Integration with 2 seconds loader
+  bookingModal.addEventListener('hide.bs.modal', () => {
+    document.querySelector('.fade-scale').classList.remove('show');
+  });
+
+  // PayHero Payment
   document.getElementById('payNowBtn').addEventListener('click', () => {
     const phoneNumber = document.getElementById('phoneNumber').value.trim();
-    if (!phoneNumber) { alert('Please enter your phone number.'); return; }
+    if(!phoneNumber){ alert('Please enter your phone number.'); return; }
 
     document.getElementById('loadingSpinner').style.display = 'block';
 
@@ -733,19 +777,19 @@
       const ref = "PM Service Booking";
       const date = new Date().toLocaleString();
 
-      const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
-        `amount=${encodeURIComponent(amount)}` +
-        `&channel_id=3990` +
-        `&reference=${encodeURIComponent(ref + " - " + pkg)}` +
-        `&name=Customer` +
-        `&phone=${encodeURIComponent(phoneNumber)}` +
-        `&county=N/A` +
+      const payheroURL = `https://app.payhero.co.ke/lipwa/3513?`+
+        `amount=${encodeURIComponent(amount)}`+
+        `&channel_id=4064`+
+        `&reference=${encodeURIComponent(ref + " - " + pkg)}`+
+        `&name=Customer`+
+        `&phone=${encodeURIComponent(phoneNumber)}`+
+        `&county=N/A`+
         `&delivery=${encodeURIComponent(date)}`;
 
       document.getElementById('loadingSpinner').style.display = 'none';
       bootstrap.Modal.getInstance(bookingModal).hide();
-      window.open(payheroURL, '_blank');
-    }, 2000); // 2 seconds
+      window.open(payheroURL,'_blank');
+    }, 2000);
   });
 </script>
 
