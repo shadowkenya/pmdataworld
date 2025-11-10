@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PM Data Solution</title>
+    <title>PM Data World</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -439,6 +439,79 @@
     </div>
   </div>
 </div>
+					<div class="row">
+  <!-- Package 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">2GB - 1 Hour</div>
+        <div class="package-price">Ksh 15</div>
+        <p class="mt-2">Perfect for quick browsing</p>
+        <button class="btn btn-primary buy-btn" data-price="15" data-name="1GB - 1 Hour">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">250MB - 24 Hours</div>
+        <div class="package-price">Ksh 10</div>
+        <p class="mt-2">Great for daily use</p>
+        <button class="btn btn-primary buy-btn" data-price="20" data-name="250MB - 10 Hours">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Package 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="package-card best-deal">
+        <div class="package-title">1.25GB - Till Midnight</div>
+        <div class="package-price">Ksh 30</div>
+        <p class="mt-2">Perfect for evening sessions</p>
+        <button class="btn btn-primary buy-btn" data-price="30" data-name="1.25GB - Till Midnight">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <div class="till-number">
+          <strong>M-Pesa Till: 4832924</strong>
+          <button class="copy-btn" onclick="copyTillNumber()">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="paymentModalLabel">Complete Your Purchase</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h6 id="modalPackageName" class="fw-bold"></h6>
+        <p id="modalPackagePrice" class="text-primary fw-bold"></p>
+        <div class="mb-3">
+          <input type="tel" id="phoneNumber" class="form-control" placeholder="Enter your phone number">
+        </div>
+        <button class="btn btn-success w-100" id="payNowBtn">
+          <span id="payNowText">Pay Now</span>
+          <div class="spinner-border spinner-border-sm d-none" id="paySpinner" role="status"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
