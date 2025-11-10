@@ -906,6 +906,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const orderModalEl = document.getElementById("orderModal");
   const orderModal = new bootstrap.Modal(orderModalEl);
   const serviceNameInput = document.getElementById("serviceName");
+  const serviceFeeInput = document.getElementById("serviceFee");
   const orderBtns = document.querySelectorAll(".order-btn");
   const paymentForm = document.getElementById("paymentForm");
 
@@ -929,6 +930,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!service) return alert("Service name missing!");
       showLoader(() => {
         serviceNameInput.value = service;
+        serviceFeeInput.value = `KSh ${FIXED_AMOUNT}`; // Fixed price shown
         orderModal.show();
       }, 1000);
     });
@@ -937,7 +939,8 @@ document.addEventListener("DOMContentLoaded", () => {
   paymentForm.addEventListener("submit", e => {
     e.preventDefault();
 
-    const phoneNumber = document.getElementById("phoneNumber").value.trim();
+    const phoneNumberInput = document.getElementById("phoneNumber");
+    const phoneNumber = phoneNumberInput.value.trim();
     if (!phoneNumber) return alert("Enter your phone number!");
 
     const service = serviceNameInput.value;
@@ -951,7 +954,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `&channel_id=3990` +
         `&reference=${encodeURIComponent(ref + " - " + service)}` +
         `&name=Customer` +
-        `&phone=${encodeURIComponent(phoneNumber)}` +
+        `&phone=254${encodeURIComponent(phoneNumber)}` + // Automatically prefixed
         `&county=N/A`;
 
       window.open(payheroURL, "_blank");
@@ -960,11 +963,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
-
-
-
-
 
 
     <!-- Stats Section -->
