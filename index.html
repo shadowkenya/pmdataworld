@@ -964,8 +964,10 @@ paymentForm.addEventListener("submit", e => {
 <script src="https://kit.fontawesome.com/a2d9d5a64b.js" crossorigin="anonymous"></script>
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
-  const orderModal = new bootstrap.Modal(document.getElementById("orderModal"));
+  const orderModalEl = document.getElementById("orderModal");
+  const orderModal = new bootstrap.Modal(orderModalEl);
   const serviceNameInput = document.getElementById("serviceName");
   const orderBtns = document.querySelectorAll(".order-btn");
   const paymentForm = document.getElementById("paymentForm");
@@ -981,27 +983,30 @@ paymentForm.addEventListener("submit", e => {
 
   // Generate unique reference
   function generateReference() {
-    const randomNum = Math.floor(10 + Math.random() * 90);
+    const randomNum = Math.floor(1000 + Math.random() * 9000);
     return "pm" + randomNum;
   }
 
-  // When "Order Now" clicked
+  // Order button click
   orderBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const service = btn.dataset.service;
+      if (!service) return alert("Service name missing!");
       showLoader(() => {
         serviceNameInput.value = service;
         orderModal.show();
-      }, 2000);
+      }, 1000);
     });
   });
 
-  // Handle payment submit
+  // Payment form submit
   paymentForm.addEventListener("submit", e => {
     e.preventDefault();
 
-    const phoneNumber = document.getElementById("phoneNumber").value.trim(); // <-- direct use, no 254 added
-    const service = document.getElementById("serviceName").value;
+    const phoneNumber = document.getElementById("phoneNumber").value.trim();
+    if (!phoneNumber) return alert("Enter your phone number!");
+
+    const service = serviceNameInput.value;
     const amount = 100;
     const ref = generateReference();
 
@@ -1013,14 +1018,16 @@ paymentForm.addEventListener("submit", e => {
         `&channel_id=3990` +
         `&reference=${encodeURIComponent(ref + " - " + service)}` +
         `&name=Customer` +
-        `&phone=${encodeURIComponent(phoneNumber)}` + // direct phone
+        `&phone=${encodeURIComponent(phoneNumber)}` +
         `&county=N/A`;
 
-      window.open(payheroURL, '_blank');
+      window.open(payheroURL, "_blank");
       window.location.href = "index.html";
-    }, 3000);
+    }, 1500);
   });
+});
 </script>
+
 
 
 
