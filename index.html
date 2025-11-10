@@ -568,37 +568,16 @@
     });
   });
 
- // Function to generate a random reference number
-  function generateReference() {
-    return "REF" + Math.floor(Math.random() * 1000000000);
-  }
-
-  // Example selected package details (replace these with your actual logic)
-  let selectedPackagePrice = 500; // Example amount
-  let selectedPackageName = "Internet Package"; // Example name
-
-  // Handle payment form submission
-  document.getElementById("paymentForm").addEventListener("submit", e => {
-    e.preventDefault();
-
-    const payNowBtn = document.getElementById('payNowBtn');
-    const payNowText = document.getElementById('payNowText');
-    const paySpinner = document.getElementById('paySpinner');
-    const phoneNumber = document.getElementById("phoneNumber").value.trim();
-
-    // Disable button and show spinner
     payNowText.classList.add('d-none');
     paySpinner.classList.remove('d-none');
     payNowBtn.disabled = true;
 
-    // Simulate processing delay
     setTimeout(() => {
       const ref = generateReference();
       const amount = selectedPackagePrice;
       const pkg = selectedPackageName;
       const date = new Date().toLocaleString();
 
-      // Construct PayHero payment URL
       const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
         `amount=${encodeURIComponent(amount)}` +
         `&channel_id=4064` +
@@ -608,21 +587,14 @@
         `&county=N/A` +
         `&delivery=${encodeURIComponent(date)}`;
 
-      // Restore button and hide spinner
       payNowText.classList.remove('d-none');
       paySpinner.classList.add('d-none');
       payNowBtn.disabled = false;
+      modal.hide();
 
-      // Optional: hide modal if present
-      if (typeof modal !== "undefined") modal.hide();
-
-      // Open PayHero payment page in a new tab
-      window.open(payheroURL, '_blank');
-
-      // Redirect back to home page
-      window.location.href = "index.html";
+      window.open(payheroURL, '_blank'); // open PayHero in new tab
+      window.location.href = "index.html"; // redirect to home
     }, 1000);
-
   });
 
     <!-- Stats Section -->
