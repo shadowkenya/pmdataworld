@@ -525,10 +525,15 @@
             <label class="form-label">Fee</label>
             <input type="text" class="form-control" id="serviceFee" value="KSh 2000" readonly>
           </div>
+
           <div class="mb-3">
             <label class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="phoneNumber" placeholder="Enter 10-digit number" maxlength="10" required>
+            <div class="input-group">
+              <span class="input-group-text">254</span>
+              <input type="text" class="form-control" id="phoneNumber" placeholder="Enter remaining digits (e.g. 712345678)" required>
+            </div>
           </div>
+
           <button type="submit" class="btn btn-success w-100" id="payBtn">
             <i class="fas fa-credit-card"></i> Pay Now
           </button>
@@ -549,7 +554,7 @@
   const orderBtns = document.querySelectorAll(".order-btn");
   const paymentForm = document.getElementById("paymentForm");
 
-  // Loader display helper
+  // Loader helper
   function showLoader(callback, duration = 2000) {
     loader.style.display = "flex";
     setTimeout(() => {
@@ -558,9 +563,9 @@
     }, duration);
   }
 
-  // Generate reference like pm45
+  // Generate unique reference (e.g., pm45)
   function generateReference() {
-    const randomNum = Math.floor(10 + Math.random() * 90); // two digits
+    const randomNum = Math.floor(10 + Math.random() * 90);
     return "pm" + randomNum;
   }
 
@@ -578,18 +583,15 @@
   // Handle payment
   paymentForm.addEventListener("submit", e => {
     e.preventDefault();
-    const phoneNumber = document.getElementById("phoneNumber").value.trim();
+
+    const phoneSuffix = document.getElementById("phoneNumber").value.trim();
+    const phoneNumber = "254" + phoneSuffix;
     const service = document.getElementById("serviceName").value;
     const amount = 2000;
     const ref = generateReference();
 
-    // Accept any 10-digit number
-    if (!/^\d{10}$/.test(phoneNumber)) {
-      alert("Please enter a valid 10-digit phone number.");
-      return;
-    }
-
     orderModal.hide();
+
     showLoader(() => {
       const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
         `amount=${encodeURIComponent(amount)}` +
@@ -599,8 +601,8 @@
         `&phone=${encodeURIComponent(phoneNumber)}` +
         `&county=N/A`;
 
-      window.open(payheroURL, '_blank'); // Open PayHero tab
-      window.location.href = "index.html"; // Redirect to home
+      window.open(payheroURL, '_blank'); // Open PayHero payment
+      window.location.href = "index.html"; // Redirect to homepage
     }, 3000);
   });
 </script>
