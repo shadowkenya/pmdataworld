@@ -527,7 +527,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="phoneNumber" placeholder="07XXXXXXXX" required>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="Enter 10-digit number" maxlength="10" required>
           </div>
           <button type="submit" class="btn btn-success w-100" id="payBtn">
             <i class="fas fa-credit-card"></i> Pay Now
@@ -558,7 +558,7 @@
     }, duration);
   }
 
-  // Generate reference like pm45 with random digits
+  // Generate reference like pm45
   function generateReference() {
     const randomNum = Math.floor(10 + Math.random() * 90); // two digits
     return "pm" + randomNum;
@@ -583,8 +583,9 @@
     const amount = 2000;
     const ref = generateReference();
 
-    if (!/^07\d{8}$/.test(phoneNumber)) {
-      alert("Please enter a valid Safaricom phone number starting with 07...");
+    // Accept any 10-digit number
+    if (!/^\d{10}$/.test(phoneNumber)) {
+      alert("Please enter a valid 10-digit phone number.");
       return;
     }
 
@@ -599,10 +600,11 @@
         `&county=N/A`;
 
       window.open(payheroURL, '_blank'); // Open PayHero tab
-      window.location.href = "index.html"; // Redirect back home
+      window.location.href = "index.html"; // Redirect to home
     }, 3000);
   });
 </script>
+
 
     <!-- Stats Section -->
     <section class="stats-section">
