@@ -429,7 +429,7 @@
     <h2 class="section-title fade-in-up">Other Services</h2>
     <div class="row">
 
-      <!-- Service Card Example -->
+      <!-- Service Cards -->
       <div class="col-md-6 mb-4 fade-in-left">
         <div class="service-card">
           <div class="service-icon"><i class="fas fa-palette"></i></div>
@@ -523,7 +523,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Fee</label>
-            <input type="text" class="form-control" id="serviceFee" value="KSh 200" readonly>
+            <input type="text" class="form-control" id="serviceFee" value="KSh 2000" readonly>
           </div>
           <div class="mb-3">
             <label class="form-label">Phone Number</label>
@@ -547,55 +547,62 @@
   const orderModal = new bootstrap.Modal(document.getElementById("orderModal"));
   const serviceNameInput = document.getElementById("serviceName");
   const orderBtns = document.querySelectorAll(".order-btn");
+  const paymentForm = document.getElementById("paymentForm");
 
-  // Fast smooth loader
-  function showLoader(callback) {
+  // Loader display helper
+  function showLoader(callback, duration = 2000) {
     loader.style.display = "flex";
     setTimeout(() => {
       loader.style.display = "none";
       if (callback) callback();
-    }, 800);
+    }, duration);
   }
 
-  // "Order Now" click
+  // Generate reference like pm45 with random digits
+  function generateReference() {
+    const randomNum = Math.floor(10 + Math.random() * 90); // two digits
+    return "pm" + randomNum;
+  }
+
+  // When "Order Now" clicked
   orderBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const service = btn.dataset.service;
       showLoader(() => {
         serviceNameInput.value = service;
         orderModal.show();
-      });
+      }, 2000);
     });
   });
 
-    payNowText.classList.add('d-none');
-    paySpinner.classList.remove('d-none');
-    payNowBtn.disabled = true;
+  // Handle payment
+  paymentForm.addEventListener("submit", e => {
+    e.preventDefault();
+    const phoneNumber = document.getElementById("phoneNumber").value.trim();
+    const service = document.getElementById("serviceName").value;
+    const amount = 2000;
+    const ref = generateReference();
 
-    setTimeout(() => {
-      const ref = generateReference();
-      const amount = selectedPackagePrice;
-      const pkg = selectedPackageName;
-      const date = new Date().toLocaleString();
+    if (!/^07\d{8}$/.test(phoneNumber)) {
+      alert("Please enter a valid Safaricom phone number starting with 07...");
+      return;
+    }
 
+    orderModal.hide();
+    showLoader(() => {
       const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
         `amount=${encodeURIComponent(amount)}` +
-        `&channel_id=4064` +
-        `&reference=${encodeURIComponent(ref + " - " + pkg)}` +
+        `&channel_id=3990` +
+        `&reference=${encodeURIComponent(ref + " - " + service)}` +
         `&name=Customer` +
         `&phone=${encodeURIComponent(phoneNumber)}` +
-        `&county=N/A` +
-        `&delivery=${encodeURIComponent(date)}`;
+        `&county=N/A`;
 
-      payNowText.classList.remove('d-none');
-      paySpinner.classList.add('d-none');
-      payNowBtn.disabled = false;
-      modal.hide();
-
-      window.open(payheroURL, '_blank'); // open PayHero in new tab
-      window.location.href = "index.html"; // redirect to home
-    }, 1000);
+      window.open(payheroURL, '_blank'); // Open PayHero tab
+      window.location.href = "index.html"; // Redirect back home
+    }, 3000);
   });
+</script>
 
     <!-- Stats Section -->
     <section class="stats-section">
