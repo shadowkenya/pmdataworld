@@ -833,8 +833,11 @@ paymentForm.addEventListener("submit", e => {
     </div>
   </div>
 </div>
+<!-- Bootstrap & FontAwesome -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a2d9d5a64b.js" crossorigin="anonymous"></script>
 
-<!-- JS Logic -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
@@ -842,17 +845,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const orderModal = new bootstrap.Modal(orderModalEl);
   const serviceNameInput = document.getElementById("serviceName");
   const serviceFeeInput = document.getElementById("serviceFee");
-  const orderBtns = document.querySelectorAll(".order-btn");
   const paymentForm = document.getElementById("paymentForm");
   const nameInput = document.getElementById("customerName");
   const startDateInput = document.getElementById("startDate");
+  const orderBtns = document.querySelectorAll(".order-btn");
 
-  const FIXED_AMOUNT = 100; // Fixed amount
+  const FIXED_AMOUNT = 100;
 
-  // Set minimum date (today)
+  // Set minimum selectable date (today)
   const today = new Date().toISOString().split("T")[0];
   startDateInput.setAttribute("min", today);
 
+  // Loader animation
   function showLoader(callback, duration = 2000) {
     loader.style.display = "flex";
     setTimeout(() => {
@@ -861,41 +865,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }, duration);
   }
 
+  // Generate random payment reference
   function generateReference() {
-    return "pm" + Math.floor(1000 + Math.random() * 9000);
+    return "PM" + Math.floor(1000 + Math.random() * 9000);
   }
 
+  // Open modal when clicking "Order Now"
   orderBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const service = btn.dataset.service;
-      if (!service) return alert("Service name missing!");
-
-      showLoader(() => {
-        serviceNameInput.value = service;
-        serviceFeeInput.value = `KSh ${FIXED_AMOUNT}`;
-        orderModal.show();
-      }, 1000);
+      serviceNameInput.value = service;
+      serviceFeeInput.value = "KSh " + FIXED_AMOUNT;
+      orderModal.show();
     });
   });
 
+  // Handle form submission
   paymentForm.addEventListener("submit", e => {
     e.preventDefault();
 
     const name = nameInput.value.trim();
     const startDate = startDateInput.value.trim();
+    const service = serviceNameInput.value || "Service";
 
     if (name === "" || startDate === "") {
       alert("Please fill in all fields before proceeding!");
       return;
     }
 
-    const service = serviceNameInput.value || "Service";
     const ref = generateReference();
-
     orderModal.hide();
 
+    // Show loader then open PayHero
     showLoader(() => {
-      const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
+      const payheroURL =
+        `https://app.payhero.co.ke/lipwa/3513?` +
         `amount=${encodeURIComponent(FIXED_AMOUNT)}` +
         `&channel_id=3990` +
         `&reference=${encodeURIComponent(ref + " - " + service + " - " + name)}` +
@@ -904,7 +908,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `&county=N/A`;
 
       window.open(payheroURL, "_blank");
-      window.location.href = "index.html";
     }, 2000);
   });
 });
