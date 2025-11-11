@@ -883,6 +883,53 @@ paymentForm.addEventListener("submit", e => {
   </div>
 </div>
 
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a2d9d5a64b.js" crossorigin="anonymous"></script>
+
+<!-- Loader -->
+<div id="loader" style="display:none; position:fixed; inset:0; background:rgba(255,255,255,0.8); z-index:2000; align-items:center; justify-content:center;">
+  <div class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Processing...</span>
+  </div>
+</div>
+
+<!-- Order Modal -->
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header">
+        <h5 class="modal-title" id="orderModalLabel"><i class="fas fa-credit-card"></i> Complete Your Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="paymentForm">
+          <div class="mb-3">
+            <label class="form-label">Service Name</label>
+            <input type="text" id="serviceName" class="form-control" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Amount</label>
+            <input type="text" id="serviceFee" class="form-control" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" id="customerName" class="form-control" placeholder="Enter your name" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Start Date</label>
+            <input type="date" id="startDate" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-danger w-100 mt-3">
+            Proceed to Payment
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Example Order Button -->
 <button class="btn btn-primary order-btn" data-service="Online Course">Order Now</button>
 
@@ -964,8 +1011,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
-
 
 
 
