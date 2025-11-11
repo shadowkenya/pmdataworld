@@ -852,11 +852,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const FIXED_AMOUNT = 100;
 
-  // Set minimum selectable date (today)
+  // Set today's date as minimum
   const today = new Date().toISOString().split("T")[0];
   startDateInput.setAttribute("min", today);
 
-  // Loader animation
+  // Loader function
   function showLoader(callback, duration = 2000) {
     loader.style.display = "flex";
     setTimeout(() => {
@@ -865,7 +865,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, duration);
   }
 
-  // Generate random payment reference
+  // Generate random reference
   function generateReference() {
     return "PM" + Math.floor(1000 + Math.random() * 9000);
   }
@@ -896,7 +896,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const ref = generateReference();
     orderModal.hide();
 
-    // Show loader then open PayHero
+    // Show loader, then open PayHero
     showLoader(() => {
       const payheroURL =
         `https://app.payhero.co.ke/lipwa/3513?` +
@@ -904,7 +904,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `&channel_id=3990` +
         `&reference=${encodeURIComponent(ref + " - " + service + " - " + name)}` +
         `&name=${encodeURIComponent(name)}` +
-        `&phone=254700000000` +
         `&county=N/A`;
 
       window.open(payheroURL, "_blank");
@@ -912,6 +911,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 
 
     <!-- Stats Section -->
