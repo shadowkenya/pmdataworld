@@ -893,7 +893,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const FIXED_AMOUNT = 100; // Fixed amount in KSh
 
-  // Loader function (2 seconds)
+  // Loader for 2 seconds
   function showLoader(callback, duration = 2000) {
     loader.style.display = "flex";
     setTimeout(() => {
@@ -902,12 +902,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, duration);
   }
 
-  // Generate unique reference
+  // Generate reference code
   function generateReference() {
     return "pm" + Math.floor(1000 + Math.random() * 9000);
   }
 
-  // When order button is clicked
+  // When order button clicked
   orderBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const service = btn.dataset.service;
@@ -915,21 +915,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
       showLoader(() => {
         serviceNameInput.value = service;
-        serviceFeeInput.value = `KSh ${FIXED_AMOUNT}`; // Fixed fee display
+        serviceFeeInput.value = `KSh ${FIXED_AMOUNT}`;
         orderModal.show();
       }, 1000);
     });
   });
 
-  // Payment form submission
+  // Payment submission
   paymentForm.addEventListener("submit", e => {
     e.preventDefault();
 
-    const rawPhone = phoneInput.value.trim();
-    if (!rawPhone) return alert("Please enter your phone number!");
+    let phone = phoneInput.value.trim();
+    if (phone === "") {
+      alert("Please enter your phone number!");
+      return;
+    }
 
-    // Clean phone input
-    let phone = rawPhone.replace(/\D/g, "");
+    // Sanitize and auto-format
+    phone = phone.replace(/\D/g, ""); // remove non-digits
     if (phone.startsWith("0")) phone = "254" + phone.substring(1);
     else if (!phone.startsWith("254")) phone = "254" + phone;
 
@@ -938,6 +941,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     orderModal.hide();
 
+    // Show loader for 2 seconds then open PayHero
     showLoader(() => {
       const payheroURL = `https://app.payhero.co.ke/lipwa/3513?` +
         `amount=${encodeURIComponent(FIXED_AMOUNT)}` +
@@ -947,13 +951,13 @@ document.addEventListener("DOMContentLoaded", () => {
         `&phone=${encodeURIComponent(phone)}` +
         `&county=N/A`;
 
-      // Open PayHero in new tab and return to home
-      window.open(payheroURL, "_blank");
-      window.location.href = "index.html";
+      window.open(payheroURL, "_blank"); // open payment page
+      window.location.href = "index.html"; // redirect back
     }, 2000);
   });
 });
 </script>
+
 
 
 
